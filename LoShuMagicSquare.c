@@ -34,7 +34,20 @@ int array_test(int arr[][3]) {
 
     return 0;
 }
+// loop from 1-9 random select 2d array location
+void random_populate(int arr[][3]) {
+    int rand_row, rand_col;
+    // reset back to 0
+    memset(arr, 0, sizeof(arr[0][0]) * 3 * 3);
 
+    for (int i = 1; i < 10; i++) {
+        do {
+            rand_row = rand() % 3;
+            rand_col = rand() % 3;
+        } while (arr[rand_row][rand_col] != 0);
+        arr[rand_row][rand_col] = i;
+    }
+}
 int main() {
     int arr[3][3] = {4, 9, 2,
                      3, 5, 7,
