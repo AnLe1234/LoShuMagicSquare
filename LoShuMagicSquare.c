@@ -48,6 +48,18 @@ void random_populate(int arr[][3]) {
         arr[rand_row][rand_col] = i;
     }
 }
+// print 2D-array
+void print_arr(int arr[][3]) {
+    for (int i = 0; i < 3; i++) {
+        printf("[");
+        for (int j = 0; j < 3; j++) {
+            printf(" %d ", arr[i][j]);
+        }
+        printf("]\n");
+    }
+    printf("\n");
+}
+
 int main() {
     int arr[3][3] = {4, 9, 2,
                      3, 5, 7,
