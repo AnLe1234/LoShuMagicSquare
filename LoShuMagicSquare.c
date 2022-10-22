@@ -1,16 +1,11 @@
 // program that determine a 2D-array is Lo Shu Magic Square
-// create 2D-array
-// create function to test 2D-array
-
-// loop from 1-9 random select 2d array location
-// check if Lo Shu Magic Square
-// if not count++
-// print count, and 2D array
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
+// create function to test 2D-array
 int array_test(int arr[][3]) {
     // loop compare row
     for (int i = 0; i < 3; i++) {
@@ -61,14 +56,21 @@ void print_arr(int arr[][3]) {
 }
 
 int main() {
-    int arr[3][3] = {4, 9, 2,
-                     3, 5, 7,
-                     8, 1, 6};
-    if (array_test(arr) == 0) {
-        printf("It is a Lo Shu Magic Square!\n");
-    } else {
-        printf("It is NOT a Lo Shu Magic Square.");
-    }
+    time_t t;
+    srand((unsigned) time(&t));
+    // create 2D-array
+    int arr[3][3] = {{4, 9, 2},
+                     {3, 5, 7},
+                     {8, 1, 6}};
+    int count = 0;
+    do {
+        random_populate(arr);
+        count++;
+    } while (array_test(arr) == 1);
 
+    // print number before sucess
+    printf("Number of populate before sucess: %d\n", count-1);
+    // print 2D-array
+    print_arr(arr);
     return EXIT_SUCCESS;
 }
