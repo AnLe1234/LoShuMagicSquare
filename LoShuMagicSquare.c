@@ -34,3 +34,16 @@ int array_test(int arr[][3]) {
 
     return 0;
 }
+
+int main() {
+    int arr[3][3] = {4, 9, 2,
+                     3, 5, 7,
+                     8, 1, 6};
+    if (array_test(arr) == 0) {
+        printf("It is a Lo Shu Magic Square!\n");
+    } else {
+        printf("It is NOT a Lo Shu Magic Square.");
+    }
+
+    return EXIT_SUCCESS;
+}
